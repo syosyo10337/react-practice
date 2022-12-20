@@ -1,24 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Task from "./components/Task";
 
+const tasks = [
+  { id: 1, content: "買い物"},
+  { id: 2, content: "ランニング"},
+  { id: 3, content: "プログラミング学習"},
+]
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <> 
+      <h1>タスク一覧</h1>
+      <div>
+        {tasks.map(task => {
+          return (
+            <div key={task.id}>
+              <Task name={task.content}/>     
+            </div>
+          )
+        })}
+      </div>
+    </>
   );
 }
 
